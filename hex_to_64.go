@@ -59,7 +59,7 @@ func byteTo64(arr []byte) (string, error) {
 	return s, nil
 
 }
-func hexTo64(str string) (string, error) {
+func HexTo64(str string) (string, error) {
 	bytes, err := hexToByte(str)
 	if err != nil {
 		return "", fmt.Errorf("nope")
