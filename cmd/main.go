@@ -1,5 +1,10 @@
 package main
 
+import (
+	"crypto"
+	"fmt"
+)
+
 func main() {
 
 	///////// SINGLE XOR
@@ -22,4 +27,13 @@ func main() {
 	// 	fmt.Println(r)
 	// }
 
+	///////Encrypt
+	// f := crypto.Encrypt(crypto.Stanza, crypto.Key)
+	// fmt.Println(f)
+	// fmt.Println(f == crypto.Encryption)
+
+	one := "this is a test"
+	two := "wokka wokka!!!"
+	in := crypto.Hammin(one, two)
+	fmt.Println(in)
 }
