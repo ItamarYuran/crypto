@@ -4,7 +4,7 @@ import "fmt"
 
 const TABLE = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
 
-func hexDigitToInt(digit byte) (int, error) {
+func HexDigitToInt(digit byte) (int, error) {
 	switch {
 	case digit >= '0' && digit <= '9':
 		return int(digit - '0'), nil
@@ -17,17 +17,17 @@ func hexDigitToInt(digit byte) (int, error) {
 	}
 }
 
-func hexToByte(hex string) ([]byte, error) {
+func HexToByte(hex string) ([]byte, error) {
 	if len(hex)%2 != 0 {
 		return nil, fmt.Errorf("errrror")
 	}
 	bytes := make([]byte, len(hex)/2)
 	for i := 0; i < len(hex); i = i + 2 {
-		high, err := hexDigitToInt(hex[i])
+		high, err := HexDigitToInt(hex[i])
 		if err != nil {
 			return nil, fmt.Errorf("wont work")
 		}
-		low, err := hexDigitToInt(hex[i+1])
+		low, err := HexDigitToInt(hex[i+1])
 		if err != nil {
 			return nil, fmt.Errorf("wont work")
 		}
@@ -39,6 +39,7 @@ func hexToByte(hex string) ([]byte, error) {
 
 func byteTo64(arr []byte) (string, error) {
 	if len(arr)%3 != 0 {
+		fmt.Println(len(arr) % 3)
 		return "", fmt.Errorf("nope body")
 	}
 	s := ""
@@ -60,13 +61,13 @@ func byteTo64(arr []byte) (string, error) {
 
 }
 func HexTo64(str string) (string, error) {
-	bytes, err := hexToByte(str)
+	bytes, err := HexToByte(str)
 	if err != nil {
-		return "", fmt.Errorf("nope")
+		return "", fmt.Errorf(" here nope")
 	}
 	sixtyfour, err := byteTo64(bytes)
 	if err != nil {
-		return "", fmt.Errorf("nope")
+		return "", err
 	}
 	return sixtyfour, nil
 

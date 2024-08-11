@@ -23,7 +23,7 @@ func TestHexToBytes(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.input, func(t *testing.T) {
-			got, err := hexToByte(tt.input)
+			got, err := HexToByte(tt.input)
 			if (err != nil) != tt.wantErr {
 				t.Errorf("hexToBytes() error = %v, wantErr %v", err, tt.wantErr)
 				return

@@ -8,8 +8,8 @@ func Xor(st1, st2 string) (string, error) {
 	if len(st1) != len(st2) {
 		return "", fmt.Errorf("not of the same length")
 	}
-	byte1, _ := hexToByte(st1)
-	byte2, _ := hexToByte(st2)
+	byte1, _ := HexToByte(st1)
+	byte2, _ := HexToByte(st2)
 	byteret := make([]byte, len(byte1))
 	for i := range byte1 {
 		byteret[i] = byte1[i] ^ byte2[i]
